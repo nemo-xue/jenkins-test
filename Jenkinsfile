@@ -2,41 +2,40 @@ pipeline {
     
     agent any
     
-    tools {
-        maven "M3"
-    }
+    // tools {
+    //     maven "M3"
+    // }
     
     stages {
         
         stage ('Compile') {
                   
-          
-
-        steps {
-            
-            sh "mvn clean compile"
-                }
+            steps {
+                
+                sh "echo Hello Jenkins"
+            }
+        }
+        
+        stage ('Compile') {
+                  
+            steps {
+                
+                sh "mvn clean compile"
+            }
         }
         stage ('Test') {
                   
-        steps {
-            sh "mvn clean test"
-                  }
-
-              }
+            steps {
+                sh "mvn clean test"
+            }
+        }
               
         stage('Deploy') {
             
-           steps {
-            sh "mvn clean package"
-                  }
-
-              }
-
-
-
+            steps {
+                sh "mvn clean package"
+            }
+        }
 
     }
-
-
 }
